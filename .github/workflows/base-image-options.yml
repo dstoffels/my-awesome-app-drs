@@ -23,7 +23,7 @@ jobs:
           git --version
           echo
           mvn -v
-          Gradle -v
+          gradle -v
           ant -version
           echo
           echo $ANDROID_SDK_ROOT
