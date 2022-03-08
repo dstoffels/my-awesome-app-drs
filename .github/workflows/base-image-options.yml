@@ -6,7 +6,7 @@ name: Base Image Options
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,12 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run:
-          echo Hello out there
-        
+      - run: echo Hello out there
+
   Multi-line:
     runs-on: ubuntu-latest
     steps:
-     - run: |
-        ls
-        echo    
+      - run: ls
+      - run: echo
