@@ -1,0 +1,14 @@
+{
+	"name": "my-awesome-app-drs",
+	"version": "0.1.0",
+	"description": "Hello World in Node with Express",
+	"main": "App.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"author": "danimal",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}
