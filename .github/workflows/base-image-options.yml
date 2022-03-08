@@ -27,3 +27,13 @@ jobs:
           ant -version
           echo
           echo $ANDROID_SDK_ROOT
+          echo
+          echo $SELENIUM_JARS
+          echo
+          echo $GITHUB_WORKSPACE
+          echo
+          whoami
+          echo
+          df
+          echo
+          env -0 | sort -z | tr '\0' '\n'
