@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-// Simple Hello Word Node App
+// Simple Hello World Node App for saying hello to the world...
 const APP_PORT = process.env.APP_PORT || 3000;
 
 app.get('/', (req, res) => {
