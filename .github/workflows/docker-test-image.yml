@@ -1,4 +1,4 @@
-name: Docker Dev Image CI
+name: Docker Test Image CI
 
 env:
   DATE_STAMP: $(date +%s)
