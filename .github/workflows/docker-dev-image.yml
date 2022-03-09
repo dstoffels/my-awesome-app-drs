@@ -1,8 +1,5 @@
 name: Docker Dev Image CI
 
-env:
-  DATE_STAMP: $(date +%s)
-
 on:
   push:
     branches: [main]
@@ -15,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Env vars
-        run: echo "date-stamp=${{env.DATE_STAMP}}" >> $GITHUB_ENV
 
       - name: Build Docker Img
         run: docker build . --file Dockerfile --tag dstoffels/my-awesome-app-drs:latest

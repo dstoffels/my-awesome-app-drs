@@ -1,4 +1,7 @@
-name: Combined Docker Build & Test
+name: Build, test & deploy to docker hub
+
+env:
+  DATE_STAMP: $(date +%s)
 
 on:
   push:
@@ -14,8 +17,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set env vars
+        run: echo "date-stamp=${{env.DATE_STAMP}}" >> $GITHUB_ENV
+
       - name: build docker image
-        run: docker-compose -f "docker-compose-dev.yml" up -d --build web
+        run: docker build . --file Dockerfile --tag dstoffels/my-awesome-app-drs:latest
+
+      - name: Add "date-stamp" tag to image
+        run: docker image tag dstoffels/my-awesome-app-drs:${{env.date-stamp}}
+
+      - name: Login to Docker hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push image to docker hub
+        run: docker push --all-tags dstoffels/my-awesome-app-drs
   test:
     runs-on: ubuntu-latest
 
