@@ -8,5 +8,7 @@ services:
       dockerfile: Dockerfile
   test:
     container_name: my-awesome-app-drs-dev-test
-    image: my-awesome-app-drs-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile
     command: ['npm', 'run', 'test']
