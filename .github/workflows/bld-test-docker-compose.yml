@@ -24,7 +24,7 @@ jobs:
         run: docker build . --file Dockerfile --tag dstoffels/my-awesome-app-drs:latest
 
       - name: Add "date-stamp" tag to image
-        run: docker image tag dstoffels/my-awesome-app-drs:${{env.date-stamp}}
+        run: docker image tag dstoffels/my-awesome-app-drs:latest dstoffels/my-awesome-app-drs:${{env.date-stamp}}
 
       - name: Login to Docker hub
         uses: docker/login-action@v1
