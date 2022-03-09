@@ -9,4 +9,4 @@ services:
   test:
     container_name: my-awesome-app-drs-dev-test
     image: my-awesome-app-drs-dev
-    commmand: ["npm", "run", "test"]
+    command: ['npm', 'run', 'test']
