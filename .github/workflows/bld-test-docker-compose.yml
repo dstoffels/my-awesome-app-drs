@@ -1,0 +1,26 @@
+name: Combined Docker Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v2
+
+      - name: build docker image
+        run: docker-compose -f "docker-compose-dev.yml" up -d --build web
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v2
+
+      - name: test image
+        run: docker-compose -f "docker-compose-dev.yml" up -d --build test

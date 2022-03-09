@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: my-awesome-app-drs-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+  test:
+    container_name: my-awesome-app-drs-dev-test
+    image: my-awesome-app-drs-dev
+    commmand: ['npm', 'run', 'test']
