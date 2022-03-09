@@ -19,7 +19,7 @@ jobs:
         run: echo "date-stamp=${{env.DATE_STAMP}}" >> $GITHUB_ENV
 
       - name: Build Docker Img
-        run: docker build . --file Dockerfile --tag dstoffels/my-awesome-app-drs:latest
+        run: docker build . --file Dockerfile --tag dstoffels/my-awesome-app-drs:${{ env.date-stamp }}
 
       - name: Run Tests
-        run: docker run dstoffels/my-awesome-app-drs:latest npm run test
+        run: docker run dstoffels/my-awesome-app-drs:${{ env.date-stamp }} npm run test

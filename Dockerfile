@@ -1,8 +1,11 @@
-FROM node:10
+FROM node:10 as build
 WORKDIR /user/src/app
 COPY package*.json ./
-RUN npm i
+COPY package-lock.json ./
+RUN npm ci
 COPY ./ ./
-ENV APP_PORT 8080
-EXPOSE 8080
-CMD ["node", "app.js"]
+
+FROM nginx:stable-alpine as prod
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD [ "nginx", "-g", "daemon off" ]
