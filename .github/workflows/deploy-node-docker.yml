@@ -18,13 +18,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-        
+
       - run: |
           echo "aws_version_label=${{ env.APP_NAME }}-${{env.PIPELINE_ID}}" >> $GITHUB_ENV
           echo "date-stamp=${{env.DATE_STAMP}}" >> $GITHUB_ENV
 
-      - name: Deploy to Elastic Beanstalk  
-        uses: einargilsson/beanstalk-deploy@v20
+      - name: Deploy to Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v20
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
