@@ -1,5 +1,5 @@
 FROM node:10 as build
-WORKDIR /user/src/app
+WORKDIR /app
 COPY package*.json ./
 COPY package-lock.json ./
 RUN npm ci
