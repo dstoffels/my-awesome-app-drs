@@ -1,6 +1,10 @@
 name: Deploy to AWS w Docker
 
 env:
+  APP_NAME: my-awesome-app-drs
+  AWS_REGION: us-east-1
+  AWS_PLATFORM: Docker
+  PIPLINE_ID: $GITHUB_RUN_ID-$GITHUB_RUN_NUMBER
   DATE_STAMP: $(date +%s)
 
 on:
